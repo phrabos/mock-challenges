@@ -5,7 +5,9 @@ const sum = (...args) => {
 };
 
 const vowelize = (arr) => {};
-const combineAndSort = (...args) => {};
+const combineAndSort = (...args) => {
+	return args.flat().sort()
+};
 const anagramTester = (a, b) => {};
 
 const objectForEach = (obj, callback) => {};
