@@ -4,7 +4,14 @@ const sum = (...args) => {
 	return result;
 };
 
-const vowelize = (arr) => {};
+const vowelize = (arr) => {
+	let vowelRegex = /[aeiou]/gi;
+
+  	return arr.map(word => {
+	    if(!word.match(vowelRegex)) return ''
+	    return word.replace(/[^aeiou]/gi, '')
+	    }).filter(el => el !== '')
+};
 const combineAndSort = (...args) => {
 	return args.flat().sort()
 };
