@@ -6,18 +6,46 @@ const sum = (...args) => {
 };
 
 const vowelize = (arr) => {
-	const regex = /[aeiouAEIOU]/g;
+	let vowelRegex = /[aeiou]/gi;
 
-	return arr.map((word) => word.replace(regex));
+	return arr
+		.map((word) => {
+			if (!word.match(vowelRegex)) return '';
+			return word.replace(/[^aeiou]/gi, '');
+		})
+		.filter((el) => el !== '');
 };
 const combineAndSort = (...args) => {
-	return args
-		.reduce((acc, curr) => {
-			return [...acc, ...curr];
-		}, [])
-		.sort();
+	return args.flat().sort();
 };
-const anagramTester = (a, b) => {};
+const anagramTester = (a, b) => {
+	// console.log('string');
+	const firstWordLetterCount = a
+		.toLowerCase()
+		.split('')
+		.sort()
+		.reduce((acc, curr) => {
+			if (!acc[curr]) acc[curr] = 1;
+			else acc[curr]++;
+			return acc;
+		}, {});
+	const secondWordLetterCount = b
+		.toLowerCase()
+		.split('')
+		.sort()
+		.reduce((acc, curr) => {
+			if (!acc[curr]) acc[curr] = 1;
+			else acc[curr]++;
+			return acc;
+		}, {});
+	const stringA = JSON.stringify(firstWordLetterCount);
+
+	const stringB = JSON.stringify(secondWordLetterCount);
+
+	console.log(stringA, stringB, stringA === stringB);
+
+	return stringA === stringB;
+};
 
 const objectForEach = (obj, callback) => {};
 
