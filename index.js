@@ -1,11 +1,22 @@
 const sum = (...args) => {
-	let result = 0;
-	for (let num of args) result += num;
-	return result;
+	return args.reduce((acc, curr) => {
+		acc += curr;
+		return acc;
+	}, 0);
 };
 
-const vowelize = (arr) => {};
-const combineAndSort = (...args) => {};
+const vowelize = (arr) => {
+	const regex = /[aeiouAEIOU]/g;
+
+	return arr.map((word) => word.replace(regex));
+};
+const combineAndSort = (...args) => {
+	return args
+		.reduce((acc, curr) => {
+			return [...acc, ...curr];
+		}, [])
+		.sort();
+};
 const anagramTester = (a, b) => {};
 
 const objectForEach = (obj, callback) => {};
