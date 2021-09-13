@@ -50,7 +50,14 @@ const objectForEach = (obj, callback) => {
 	keys.forEach((key) => callback(obj[key]));
 };
 
-const updateAtPath = (obj, string, value) => {};
+const updateAtPath = (obj, string, value) => {
+	let path = string.split('.');
+	for (let i = 0; i < path.length; i++) {
+		if (i !== path.length - 1) {
+			obj = obj[path[i]];
+		} else obj[path[i]] = value;
+	}
+};
 
 class Car {}
 
