@@ -59,9 +59,35 @@ const updateAtPath = (obj, string, value) => {
 	}
 };
 
-class Car {}
+class Car {
+	initialFuelLevel;
+	fuelCapacity;
+	constructor({ initialFuelLevel, fuelCapacity }) {
+		(this.initialFuelLevel = initialFuelLevel),
+			(this.fuelCapacity = fuelCapacity);
+	}
+	getFuelLevel() {
+		return this.initialFuelLevel;
+	}
+	addFuel(num) {
+		num + this.initialFuelLevel <= this.fuelCapacity
+			? (this.initialFuelLevel += num)
+			: (this.initialFuelLevel = this.fuelCapacity);
+	}
+}
 
-const whatWouldYouLikeToCheckOut = async (libraryApi) => {};
+const whatWouldYouLikeToCheckOut = async (libraryApi) => {
+	const authors = await libraryApi.favoriteAuthors();
+	const books = await Promise.all(
+		authors.map((author) => libraryApi.booksAvailableBy(author))
+	);
+	const titles = [];
+	for (t of books.flat()) {
+		titles.push(t.title);
+	}
+
+	return titles;
+};
 
 const calc = (left) => {};
 
