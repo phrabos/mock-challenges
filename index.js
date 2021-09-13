@@ -42,12 +42,13 @@ const anagramTester = (a, b) => {
 
 	const stringB = JSON.stringify(secondWordLetterCount);
 
-	console.log(stringA, stringB, stringA === stringB);
-
 	return stringA === stringB;
 };
 
-const objectForEach = (obj, callback) => {};
+const objectForEach = (obj, callback) => {
+	const keys = Object.keys(obj);
+	keys.forEach((key) => callback(obj[key]));
+};
 
 const updateAtPath = (obj, string, value) => {};
 
