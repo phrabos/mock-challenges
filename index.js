@@ -89,7 +89,14 @@ const whatWouldYouLikeToCheckOut = async (libraryApi) => {
 	return titles;
 };
 
-const calc = (left) => {};
+const calc = (left) => {
+	return function mid(middle) {
+		return function r(right) {
+			console.log(left, middle, right);
+			return eval(`${left}${middle}${right}`);
+		};
+	};
+};
 
 module.exports = {
 	exampleFunction: function (message) {
