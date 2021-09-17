@@ -17,7 +17,10 @@ const anagramTester = (a, b) => {
 	return strA === strB;
 };
 
-const objectForEach = (obj, callback) => {};
+const objectForEach = (obj, callback) => {
+	const keys = Object.keys(obj);
+	keys.forEach((key) => callback(obj[key]));
+};
 
 const updateAtPath = (obj, string, value) => {};
 
