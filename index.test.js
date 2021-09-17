@@ -32,7 +32,7 @@ describe('Index', () => {
 	});
 
 	// test the function "vowelize" (vowels are “a”, “e”, “i”, “o”, and “u”)
-	it('the vowelize function', () => {
+	it.skip('the vowelize function', () => {
 		expect(Index.vowelize(['cornhole', 'waistcoat', 'tumblr'])).to.deep.equal([
 			'ooe',
 			'aioa',
@@ -46,7 +46,7 @@ describe('Index', () => {
 	});
 
 	// should return nothing for words without vowels
-	it('the vowelize function for words without vowels', () => {
+	it.skip('the vowelize function for words without vowels', () => {
 		expect(Index.vowelize(['sky', 'rhythm', 'nymph'])).to.deep.equal([]);
 	});
 

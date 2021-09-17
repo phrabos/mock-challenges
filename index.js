@@ -1,10 +1,21 @@
-const sum = (...args) => {};
+const sum = (...args) => {
+	return args.reduce((acc, curr) => {
+		return (acc += curr);
+	}, 0);
+};
 
 const vowelize = (arr) => {
 	let vowelRegex = /[aeiou]/gi;
 };
-const combineAndSort = (...args) => {};
-const anagramTester = (a, b) => {};
+const combineAndSort = (...args) => {
+	return args.flat().sort();
+};
+const anagramTester = (a, b) => {
+	const strA = a.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+	const strB = b.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+
+	return strA === strB;
+};
 
 const objectForEach = (obj, callback) => {};
 
